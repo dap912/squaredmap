@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+
+  <script src="bower_components/squared/dist/squared.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  
+  <style type="text/css">
+.squared-geog {
+    background-color: #FDC26D;
+}
+.squared-geog.small {
+    background-color:  #B2CDEA;
+    color: white;
+    font-family: 'Lato', sans-serif;
+}
+.squared-geog.medium {
+    background-color: #0653A5;
+    color: white;
+    font-family: 'Lato', sans-serif;
+}
+.squared-geog.large {
+    background-color: #09315B;
+    color: white;
+    font-family: 'Lato', sans-serif;
+}
+
+body {
+  text-align: center;
+  list-style-type: none;
+}
+
+  </style>  
+
+  
+</head> 
+
+<body>
+
+<h1> Percentage of White People by State in 2015 </h1>
+
+<p>  Light blue : Under 45%
+<br> Medium blue : Under 85% 
+<br>Dark blue: Over 85%  </p>
+
+<div id="map" style="width: 600px; height: 400px; margin-left: 300px"></div>
+
+<p> Debbi Patton and Fallon Forbush: Data Source - Kaiser Family Foundation</p>
+</body>
+  
+<script>
+var mydata =
+[{"full_name":"  New Hampshire","name":"NH","white_percent":91},
+{"full_name":"  Maryland","name":"MD","white_percent":50},
+{"full_name":"  Alaska","name":"AK","white_percent":74},
+{"full_name":"  Connecticut","name":"CT","white_percent":70},
+{"full_name":"  New Jersey","name":"NJ","white_percent":56},
+{"full_name":"  Hawaii","name":"HI","white_percent":19},
+{"full_name":"  Minnesota","name":"MN","white_percent":82},
+{"full_name":"  North Dakota","name":"ND","white_percent":85},
+{"full_name":"  Vermont","name":"VT","white_percent":94},
+{"full_name":"  Virginia","name":"VA","white_percent":62},
+{"full_name":"  Wyoming","name":"WY","white_percent":85},
+{"full_name":"  Massachusetts","name":"MA","white_percent":73},
+{"full_name":"  Delaware","name":"DE","white_percent":63},
+{"full_name":"  Utah","name":"UT","white_percent":81},
+{"full_name":"  Iowa","name":"IA","white_percent":85},
+{"full_name":"  Colorado","name":"CO","white_percent":69},
+{"full_name":"  Nebraska","name":"NE","white_percent":79},
+{"full_name":"  Wisconsin","name":"WI","white_percent":78},
+{"full_name":"  Washington","name":"WA","white_percent":69},
+{"full_name":"  Pennsylvania","name":"PA","white_percent":76},
+{"full_name":"  Kansas","name":"KS","white_percent":75},
+{"full_name":"  Maine","name":"ME","white_percent":91},
+{"full_name":"  South Dakota","name":"SD","white_percent":72},
+{"full_name":"  Rhode Island","name":"RI","white_percent":83},
+{"full_name":"  Illinois","name":"IL","white_percent":63},
+{"full_name":"  Montana","name":"MT","white_percent":90},
+{"full_name":"  Indiana","name":"IN","white_percent":80},
+{"full_name":"  Idaho","name":"ID","white_percent":84},
+{"full_name":"  Nevada","name":"NV","white_percent":50},
+{"full_name":"  Missouri","name":"MO","white_percent":80},
+{"full_name":"  New York","name":"NY","white_percent":58},
+{"full_name":"  Ohio","name":"OH","white_percent":79},
+{"full_name":"  California","name":"CA","white_percent":39},
+{"full_name":"  Florida","name":"FL","white_percent":54},
+{"full_name":"  Oregon","name":"OR","white_percent":74},
+{"full_name":"  Michigan","name":"MI","white_percent":76},
+{"full_name":"  Oklahoma","name":"OK","white_percent":65},
+{"full_name":"  Texas","name":"TX","white_percent":44},
+{"full_name":"  North Carolina","name":"NC","white_percent":62},
+{"full_name":"  Tennessee","name":"TN","white_percent":73},
+{"full_name":"  South Carolina","name":"SC","white_percent":64},
+{"full_name":"  West Virginia","name":"WV","white_percent":93},
+{"full_name":"  Arizona","name":"AZ","white_percent":51},
+{"full_name":"  Georgia","name":"GA","white_percent":52},
+{"full_name":"  Alabama","name":"AL","white_percent":65},
+{"full_name":"  Kentucky","name":"KY","white_percent":85},
+{"full_name":"  Arkansas","name":"AR","white_percent":74},
+{"full_name":"  Louisiana","name":"LA","white_percent":58},
+{"full_name":"  New Mexico","name":"NM","white_percent":38},
+{"full_name":"  Mississippi","name":"MS","white_percent":56}
+];
+  map = new Squared("map");
+  map.make();
+    map.data(mydata, "name");
+    console.log(mydata);
+    map.addClass(function(d){
+      if(d.white_percent < 45)
+        return "small";
+       else if(d.white_percent < 85)
+         return "medium";
+       else return "large";
+    });
+
+
+</script>
+</html>
